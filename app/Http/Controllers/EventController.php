@@ -14,4 +14,10 @@ class EventController extends Controller
 
         return view('events.index', compact('events'));
     }
+    public function show(Event $event)
+    {
+        $event->load(['organization', 'category']);
+
+        return view('events.show', compact('event'));
+    }
 }
