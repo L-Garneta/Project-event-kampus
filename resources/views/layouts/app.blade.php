@@ -12,13 +12,13 @@
 
 <body>
 
-    @include('partials.navbar')
+    @include('partials.public.navbar')
 
     <main class="py-4">
         @yield('content')
     </main>
 
-    @include('partials.footer')
+    @include('partials.public.footer')
 
 </body>
 

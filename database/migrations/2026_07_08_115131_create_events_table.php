@@ -42,7 +42,7 @@ return new class extends Migration
 
             $table->string('lokasi');
 
-            $table->integer('kuota');
+            $table->unsignedInteger('kuota');
 
             $table->string('poster')->nullable();
 

@@ -30,6 +30,13 @@
                     </a>
                 </li>
 
+                <li class="nav-item ms-2">
+                    <a href="{{ route('login') }}" class="btn btn-light btn-sm px-3">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        Login Admin
+                    </a>
+                </li>
+
             </ul>
 
         </div>
