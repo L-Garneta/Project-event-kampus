@@ -1,17 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config('app.name', 'Campus Event Management System') }}</title>
+
+    <title>@yield('title', 'Campus Event Management System')</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body>
 
-    <main>
+    @include('partials.navbar')
+
+    <main class="py-4">
         @yield('content')
     </main>
 
+    @include('partials.footer')
+
 </body>
+
 </html>
