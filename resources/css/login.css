@@ -1,0 +1,73 @@
+.auth-body{
+
+    background:#F5F9FF;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+.login-card{
+
+    border:none;
+    border-radius:20px;
+    transition:.3s;
+}
+
+.login-card h2{
+
+    color:#2C5EAD;
+
+    font-size:30px;
+
+}
+
+.form-label{
+
+    font-weight:500;
+
+}
+
+.form-control{
+
+    height:48px;
+
+    border-radius:10px;
+
+    border:1px solid #C4E2F5;
+
+}
+
+.form-control:focus{
+
+    border-color:#1591DC;
+
+    box-shadow:0 0 0 .15rem rgba(21,145,220,.25);
+
+}
+
+.input-group .btn{
+
+    border:1px solid #C4E2F5;
+
+}
+
+.btn-login{
+
+    background:#1591DC;
+
+    color:white;
+
+    height:48px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+}
+
+.btn-login:hover{
+
+    background:#2C5EAD;
+    color:white;
+    transform:translateY(-3px);
+}

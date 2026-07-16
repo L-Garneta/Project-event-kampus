@@ -1,0 +1,69 @@
+body{
+    background:#C4E2F5;
+}
+
+/* Sidebar */
+
+.list-group-item{
+
+    padding:14px 18px;
+
+    font-weight:500;
+
+    transition:.2s;
+
+}
+
+.list-group-item:hover{
+
+    background:#4BB8FA;
+
+    color:#000;
+
+}
+
+.list-group-item.active{
+
+    background:#2C5EAD !important;
+
+    border:none;
+
+    color:#fff;
+
+}
+
+/* Navbar */
+
+.navbar{
+
+    height:70px;
+
+}
+
+/* Card */
+
+.card{
+
+    border:none;
+
+    border-radius:15px;
+
+    box-shadow:0 .25rem .8rem rgba(0,0,0,.08);
+
+}
+
+/* Button */
+
+.btn-primary{
+
+    background:#2C5EAD;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#1591DC;
+
+}

@@ -22,9 +22,9 @@ return new class extends Migration
 
             $table->string('nama_peserta');
 
-            $table->string('email');
+            $table->string('email')->index();
 
-            $table->string('no_hp');
+            $table->string('no_hp', 20);
 
             $table->enum('asal_peserta', [
                 'Mahasiswa Internal',
@@ -38,6 +38,10 @@ return new class extends Migration
 
             $table->timestamps();
 
+            $table->unique([
+                'event_id',
+                'email'
+            ]);
         });
     }
 
