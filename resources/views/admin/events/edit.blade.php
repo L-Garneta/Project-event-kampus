@@ -51,7 +51,8 @@
                             type="text"
                             name="judul"
                             class="form-control"
-                            placeholder="Masukkan judul event">
+                            placeholder="Masukkan judul event"
+                            value="{{ old('judul', $event->judul) }}">
 
                     </div>
 
@@ -110,7 +111,8 @@
                         <input
                             type="date"
                             name="tanggal"
-                            class="form-control">
+                            class="form-control"
+                            value="{{ old('tanggal', $event->tanggal) }}">
 
                     </div>
 
@@ -125,7 +127,8 @@
                         <input
                             type="time"
                             name="waktu"
-                            class="form-control">
+                            class="form-control"
+                            value="{{ old('waktu', $event->waktu) }}">
 
                     </div>
 
@@ -141,7 +144,8 @@
                             type="text"
                             name="lokasi"
                             class="form-control"
-                            placeholder="Lokasi Event">
+                            placeholder="Lokasi Event"
+                            value="{{ old('lokasi', $event->lokasi) }}">
 
                     </div>
 
@@ -157,7 +161,8 @@
                             type="number"
                             name="kuota"
                             class="form-control"
-                            min="1">
+                            min="1"
+                            value="{{ old('kuota', $event->kuota) }}">
 
                     </div>
 
@@ -174,15 +179,11 @@
                             class="form-select">
 
                             <option value="Gratis">
-
                                 Gratis
-
                             </option>
 
                             <option value="Berbayar">
-
                                 Berbayar
-
                             </option>
 
                         </select>
@@ -196,6 +197,22 @@
                             Poster
 
                         </label>
+
+                        @if($event->poster)
+
+                        <div class="mb-3">
+                            <label class="form-label">
+
+                                Poster Saat Ini
+
+                            </label>
+                            <br>
+                            <img
+                                src="{{ asset('storage/' . $event->poster) }}"
+                                class="img-thumbnail"
+                                style="max-width:250px;">
+                        </div>
+                        @endif
 
                         <input
                             type="file"
@@ -216,8 +233,7 @@
                             name="deskripsi"
                             rows="5"
                             class="form-control"
-                            placeholder="Deskripsi event"></textarea>
-
+                            placeholder="Deskripsi event">{{ old('deskripsi', $event->deskripsi) }}</textarea>
                     </div>
 
                 </div>
@@ -228,7 +244,7 @@
                         type="submit"
                         class="btn btn-primary">
 
-                        Simpan Event
+                        Update Event
 
                     </button>
 
