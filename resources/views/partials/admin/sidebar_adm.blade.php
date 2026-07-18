@@ -6,12 +6,6 @@
 
     </h6>
 
-    <div class="col-md-2 bg-white border-end min-vh-100 p-3">
-
-    <h6 class="text-muted fw-bold mb-4">
-        MENU
-    </h6>
-
     <div class="list-group list-group-flush">
 
         <a href="{{ route('admin.dashboard') }}"
@@ -22,7 +16,7 @@
 
         </a>
 
-        <a href="{{ route('admin.events.index') }}"
+        <a href="#"
             class="list-group-item list-group-item-action border-0">
 
             <i class="bi bi-calendar-event me-2"></i>
@@ -30,7 +24,7 @@
 
         </a>
 
-        <a href="{{ route('admin.categories.index') }}"
+        <a href="#"
             class="list-group-item list-group-item-action border-0">
 
             <i class="bi bi-tags me-2"></i>
@@ -38,7 +32,7 @@
 
         </a>
 
-        <a href="{{ route('admin.organizations.index') }}"
+        <a href="#"
             class="list-group-item list-group-item-action border-0">
 
             <i class="bi bi-building me-2"></i>
@@ -46,7 +40,7 @@
 
         </a>
 
-        <a href="{{ route('admin.registrations.index') }}"
+        <a href="#"
             class="list-group-item list-group-item-action border-0">
 
             <i class="bi bi-person-lines-fill me-2"></i>
@@ -56,7 +50,7 @@
 
         <hr>
 
-        <a href="{{ route('logout') }}"
+        <a href="#"
             class="list-group-item list-group-item-action border-0 text-danger">
 
             <i class="bi bi-box-arrow-right me-2"></i>
