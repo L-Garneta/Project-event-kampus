@@ -1,0 +1,11 @@
+.event-card{
+    transition:.3s;
+}
+
+.event-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 .8rem 2rem rgba(0,0,0,.15);
+    body{
+    background:#f5f7fb;
+}
+}

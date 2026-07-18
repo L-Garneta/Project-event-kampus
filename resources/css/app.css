@@ -5,3 +5,60 @@
 @import './admin.css';
 @import './dashboard.css';
 @import './components.css';
+/* Navbar Mobile */
+.hero-section{
+    overflow: hidden;
+}
+@media (max-width: 991.98px){
+
+    .navbar{
+        z-index: 1050;
+    }
+
+    #navbar{
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 12px;
+        width: min(320px, calc(100vw - 24px));
+
+        background-color: rgba(13,110,253,.95) !important;
+        backdrop-filter: blur(10px);
+
+        border-radius: 12px;
+        padding: 15px;
+
+        box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
+
+    #navbar .navbar-nav{
+        text-align:right;
+    }
+
+    #navbar .nav-item{
+        margin-bottom:10px;
+    }
+
+    #navbar .btn{
+        width:100%;
+    }
+}
+.event-card{
+    transition: .3s;
+}
+
+.event-card:hover{
+    transform: translateY(-5px);
+}
+
+.event-card .card-body{
+    padding: 1.5rem;
+}
+
+.event-card .card-title{
+    font-size: 1.35rem;
+    font-weight:700;
+}
+
+.event-card p{
+    margin-bottom:.6rem;
+}
