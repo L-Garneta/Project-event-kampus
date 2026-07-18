@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\EventController as AdminEventController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -48,3 +49,12 @@ Route::prefix('events')->group(function () {
             return view('admin.dashboard');
         })->name('admin.dashboard');
     });
+
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+    Route::resource('events', AdminEventController::class);
+});
