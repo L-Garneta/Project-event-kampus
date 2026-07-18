@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Registration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\RegistrationSuccessMail;
 
 class RegistrationController extends Controller
 {
@@ -24,8 +26,11 @@ class RegistrationController extends Controller
       ]);
 
       $validated['event_id'] = $event->id;
+      $validated['status'] = 'Terdaftar'; 
 
-      Registration::create($validated);
+      $registration = Registration::create($validated);
+
+      Mail::to($registration->email)->send(new RegistrationSuccessMail($registration, $event));
 
       return redirect()
          ->route('events.show', $event)
