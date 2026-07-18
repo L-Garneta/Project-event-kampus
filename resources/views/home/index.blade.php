@@ -29,7 +29,6 @@
             <h2 class="fw-bold">Event Terbaru</h2>
         </div>
 
-
         @if ($events->isEmpty())
 
             <div class="alert alert-warning">
@@ -38,17 +37,22 @@
 
         @else
 
-            <div class="row">
+            <div class="row g-4">
 
-                @foreach ($events as $event)
+                @foreach($events as $event)
 
-                    <div class="col-md-4 mb-4">
+                    <div class="col-12 col-md-6 col-lg-4">
 
-                        <div class="card h-100">
+                        <div class="card h-100 shadow-sm border-0 rounded-4">
+
+                            @if($event->poster)
+                                <img src="{{ asset('storage/' . $event->poster) }}" class="card-img-top"
+                                    style="height:220px; object-fit:cover;" alt="{{ $event->judul }}">
+                            @endif
 
                             <div class="card-body">
 
-                                <h5 class="card-title">
+                                <h5 class="card-title fw-bold">
                                     {{ $event->judul }}
                                 </h5>
 
@@ -62,33 +66,36 @@
 
                                 <hr>
 
-                                <p class="mb-1">
-                                    <strong>Tanggal:</strong>
+                                <p class="mb-2">
+                                    <strong>Tanggal:</strong><br>
                                     {{ $event->tanggal }}
                                 </p>
 
                                 <p class="mb-0">
-                                    <strong>Lokasi:</strong>
+                                    <strong>Lokasi:</strong><br>
                                     {{ $event->lokasi }}
                                 </p>
-                                <div class="mt-3">
-                                    <a href="{{ route('events.show', $event) }}" class="btn btn-primary">
-                                        Detail Event
-                                    </a>
 
+                            </div>
 
-                                </div>
+                            <div class="card-footer bg-white border-0">
+
+                                <a href="{{ route('events.show', $event) }}" class="btn btn-primary w-100">
+                                    Detail Event
+                                </a>
 
                             </div>
 
                         </div>
 
+                    </div>
+
                 @endforeach
 
-                </div>
+            </div>
 
         @endif
 
-        </div>
+    </div>
 
 @endsection
