@@ -14,7 +14,8 @@ class Registration extends Model
         'nama_peserta',
         'email',
         'no_hp',
-        'asal_peserta',
+        'nim',
+        'instansi',
         'status'
     ];
 

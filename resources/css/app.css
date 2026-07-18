@@ -62,3 +62,20 @@
 .event-card p{
     margin-bottom:.6rem;
 }
+.object-fit-cover{
+    object-fit: cover;
+}
+
+.card{
+    border-radius: 20px;
+}
+
+.table th{
+    width:170px;
+    font-weight:600;
+}
+
+.table td,
+.table th{
+    vertical-align: middle;
+}
