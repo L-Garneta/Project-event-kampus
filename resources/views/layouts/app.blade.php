@@ -15,6 +15,22 @@
     @include('partials.public.navbar')
 
     <main class="py-4">
+        <div class="container mt-3">
+
+            @if(session('success'))
+
+                <div class="alert alert-success alert-dismissible fade show">
+
+                    {{ session('success') }}
+
+                    <button class="btn-close" data-bs-dismiss="alert">
+                    </button>
+
+                </div>
+
+            @endif
+
+        </div>
         @yield('content')
     </main>
 
