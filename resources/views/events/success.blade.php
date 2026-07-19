@@ -4,77 +4,109 @@
 
 @section('content')
 
-<div class="container py-5">
+    <div class="container py-5">
 
-    <div class="row justify-content-center">
+        <div class="row justify-content-center">
 
-        <div class="col-lg-8">
+            <div class="col-lg-8">
 
-            <div class="card shadow border-0 rounded-4">
+                <div class="card registration-card" data-aos="zoom-in">
 
-                <div class="card-body text-center p-5">
+                    <div class="card-body text-center p-5">
 
-                    <div class="mb-4">
+                        <div class="success-icon mb-4" data-aos="zoom-in" data-aos-delay="200">
 
-                        <div class="display-1 text-success">
-                            ✅
+                            <i class="bi bi-patch-check-fill text-success display-1"></i>
                         </div>
 
-                        <h2 class="fw-bold mt-3">
+                        <h2 class="fw-bold mt-4 mb-2">
                             Pendaftaran Berhasil
                         </h2>
 
-                        <p class="text-muted">
+                        <p class="text-muted fs-5">
                             Email konfirmasi telah dikirim ke
-                            <strong>{{ $registration->email }}</strong>
+                        </p>
+
+                        <p class="fw-semibold text-primary fs-5">
+                            {{ $registration->email }}
                         </p>
 
                     </div>
 
                     <hr>
 
-                    <table class="table table-borderless text-start">
+                    <div class="registration-info mt-5">
 
-                        <tr>
-                            <th width="180">Nama Peserta</th>
-                            <td>{{ $registration->nama_peserta }}</td>
-                        </tr>
+                        <div class="info-item">
+                            <span>Nama Peserta</span>
+                            <strong>{{ $registration->nama_peserta }}</strong>
+                        </div>
 
-                        <tr>
-                            <th>Event</th>
-                            <td>{{ $registration->event->judul }}</td>
-                        </tr>
+                        <div class="info-item">
+                            <span>Event</span>
+                            <strong>{{ $registration->event->judul }}</strong>
+                        </div>
 
-                        <tr>
-                            <th>Tanggal</th>
-                            <td>{{ $registration->event->tanggal->format('d F Y') }}</td>
-                        </tr>
+                        <div class="info-item">
+                            <span>Tanggal</span>
+                            <strong>
+                                {{ $registration->event->tanggal->format('d F Y') }}
+                            </strong>
+                        </div>
 
-                        <tr>
-                            <th>Lokasi</th>
-                            <td>{{ $registration->event->lokasi }}</td>
-                        </tr>
+                        <div class="info-item">
+                            <span>Lokasi</span>
+                            <strong>{{ $registration->event->lokasi }}</strong>
+                        </div>
 
-                        <tr>
-                            <th>Status</th>
-                            <td>
-                                <span class="badge bg-success">
-                                    {{ $registration->status }}
-                                </span>
-                            </td>
-                        </tr>
+                        <div class="info-item">
+                            <span>Status</span>
 
-                    </table>
+                            <span class="badge bg-success rounded-pill px-3 py-2">
+                                {{ $registration->status }}
+                            </span>
+                        </div>
 
-                    <div class="mt-4 d-flex justify-content-center gap-3">
+                    </div>
 
-                        <a href="{{ route('home') }}" class="btn btn-primary">
-                            Kembali ke Home
+                    <div class="mt-5" data-aos="fade-up" data-aos-delay="400">
+
+                        <a href="{{ route('registration.pdf', $registration) }}"
+                            class="btn btn-danger btn-lg w-100 rounded-pill shadow mb-3">
+
+                            <i class="bi bi-file-earmark-pdf-fill me-2"></i>
+
+                            Download Bukti Registrasi
+
                         </a>
 
-                        <a href="{{ route('events.index') }}" class="btn btn-outline-primary">
-                            Event Lainnya
-                        </a>
+                        <div class="row g-3">
+
+                            <div class="col-6">
+
+                                <a href="{{ route('home') }}" class="btn btn-primary w-100 rounded-pill">
+
+                                    <i class="bi bi-house-fill me-2"></i>
+
+                                    Home
+
+                                </a>
+
+                            </div>
+
+                            <div class="col-6">
+
+                                <a href="{{ route('events.index') }}" class="btn btn-outline-primary w-100 rounded-pill">
+
+                                    <i class="bi bi-calendar-event me-2"></i>
+
+                                    Event
+
+                                </a>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -86,6 +118,6 @@
 
     </div>
 
-</div>
+    </div>
 
 @endsection

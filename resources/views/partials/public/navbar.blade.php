@@ -1,20 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary position-relative">
+
+<nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+
     <div class="container">
 
-        <a class="navbar-brand fw-bold" href="{{ route('home') }}">
+        <a class="navbar-brand fw-bold fs-3" href="{{ route('home') }}">
             Campus Event
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-            aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0 shadow-none"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarContent">
 
-            <span class="navbar-toggler-icon"></span>
+            <i class="bi bi-list fs-2"></i>
 
         </button>
 
-        <div class="collapse navbar-collapse" id="navbar">
+        <div class="collapse navbar-collapse" id="navbarContent">
 
-            <ul class="navbar-nav ms-auto text-end">
+            <ul class="navbar-nav mx-auto">
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}">
@@ -28,16 +32,29 @@
                     </a>
                 </li>
 
-                <li class="nav-item mt-2 mt-lg-0 ms-lg-2">
-                    <a href="{{ route('login') }}" class="btn btn-light btn-sm px-3">
-                        <i class="bi bi-box-arrow-in-right me-1"></i>
-                        Login Admin
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Kalender
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        Tentang
                     </a>
                 </li>
 
             </ul>
 
+            <a href="{{ route('login') }}"
+                class="btn btn-primary rounded-pill px-4">
+
+                Login Admin
+
+            </a>
+
         </div>
 
     </div>
+
 </nav>

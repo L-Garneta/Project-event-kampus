@@ -25,7 +25,7 @@ class EventSeeder extends Seeder
                 'waktu' => '09:00:00',
                 'lokasi' => 'Aula Kampus',
                 'kuota' => 150,
-                'poster' => null,
+                'poster' => 'images/posters/AI.png',
                 'status' => 'Gratis',
             ],
 
@@ -40,7 +40,7 @@ class EventSeeder extends Seeder
                 'waktu' => '08:30:00',
                 'lokasi' => 'Laboratorium Komputer',
                 'kuota' => 50,
-                'poster' => null,
+                'poster' => 'images/posters/Laravel.png',
                 'status' => 'Gratis',
             ],
 
@@ -53,9 +53,9 @@ class EventSeeder extends Seeder
                 'deskripsi' => 'Kompetisi UI/UX untuk mahasiswa seluruh Indonesia.',
                 'tanggal' => '2026-09-01',
                 'waktu' => '08:00:00',
-                'lokasi' => 'Gedung Serbaguna',
+                'lokasi' => 'Gedung Serbaguna', 
                 'kuota' => 200,
-                'poster' => null,
+                'poster' => 'images/posters/UIUX.png',
                 'status' => 'Berbayar',
             ],
 

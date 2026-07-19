@@ -1,119 +1,120 @@
+@php
+    use Illuminate\Support\Facades\Storage;
+@endphp
 @extends('layouts.app')
 
 @section('title', 'Daftar Event')
 
 @section('content')
 
-<div class="container py-5">
+    <div class="container py-5">
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
 
-        <h2 class="fw-bold">
-            Daftar Event
-        </h2>
+            <h2 class="fw-bold">
+                Daftar Event
+            </h2>
 
-        <a href="{{ route('home') }}" class="btn btn-secondary">
-            Kembali
-        </a>
+            <a href="{{ route('home') }}" class="btn btn-secondary">
+                Kembali
+            </a>
 
-    </div>
-
-    @if ($events->isEmpty())
-
-        <div class="alert alert-warning">
-            Belum ada event yang tersedia.
         </div>
 
-    @else
+        @if ($events->isEmpty())
 
-        <div class="row">
+            <div class="alert alert-warning">
+                Belum ada event yang tersedia.
+            </div>
 
-            @foreach ($events as $event)
+        @else
 
-                <div class="col-md-4 mb-4">
+            <div class="row">
 
-                    <div class="card h-100">
+                @foreach ($events as $event)
 
-                        @if($event->poster)
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
 
-                            <img src="{{ asset('storage/' . $event->poster) }}"
-                                 class="card-img-top"
-                                 alt="{{ $event->judul }}"
-                                 style="height:220px;object-fit:cover;">
+                        <div class="card event-card border-0 shadow-sm rounded-4 h-100 overflow-hidden">
 
-                        @endif
+                            {{-- Poster --}}
+                            <div class="event-image">
 
-                        <div class="card-body">
+                                @if($event->poster)
 
-                            <h5 class="card-title">
-                                {{ $event->judul }}
-                            </h5>
+                                    <img src="{{ Storage::url($event->poster) }}" class="card-img-top" alt="{{ $event->judul }}">
 
-                            <p class="text-muted">
+                                @else
 
-                                {{ $event->organization->nama_organisasi }}
+                                    <img src="{{ asset('assets/images/default-event.jpg') }}" alt="Poster Default">
 
-                            </p>
+                                @endif
 
-                            <span class="badge bg-primary">
+                                <span class="badge bg-primary position-absolute top-0 start-0 m-3 px-3 py-2">
+                                    {{ $event->category->nama_kategori }}
+                                </span>
 
-                                {{ $event->category->nama_kategori }}
+                            </div>
 
-                            </span>
+                            <div class="card-body">
 
-                            <span class="badge bg-success">
+                                <h5 class="fw-bold mb-2">
 
-                                {{ $event->status }}
+                                    {{ $event->judul }}
 
-                            </span>
+                                </h5>
+                                <div class="mb-2">
 
-                            <hr>
+                                    <i class="bi bi-calendar-event me-2 text-primary"></i>
 
-                            <p>
+                                    {{ \Carbon\Carbon::parse($event->tanggal)->format('d F Y') }}
 
-                                <strong>Tanggal :</strong><br>
+                                </div>
 
-                                {{ $event->tanggal }}
+                                <div class="mb-3">
 
-                            </p>
+                                    <i class="bi bi-geo-alt me-2 text-danger"></i>
 
-                            <p>
+                                    {{ $event->lokasi }}
 
-                                <strong>Lokasi :</strong><br>
+                                </div>
 
-                                {{ $event->lokasi }}
+                                <span class="badge bg-success">
 
-                            </p>
+                                    {{ $event->status }}
 
-                        </div>
+                                </span>
 
-                        <div class="card-footer bg-white border-0">
+                            </div>
 
-                            <a href="{{ route('events.show', $event) }}"
-                               class="btn btn-primary w-100">
+                            <div class="card-footer bg-white border-0">
 
-                                Detail Event
+                                <a href="{{ route('events.show', $event) }}" class="btn btn-primary rounded-pill w-100">
+                                    <i class="bi bi-arrow-right-circle me-2"></i>
 
-                            </a>
+                                    Detail Event
+                                    <i class="bi bi-arrow-right ms-2"></i>
+
+                                </a>
+
+                            </div>
 
                         </div>
 
                     </div>
 
-                </div>
+                @endforeach
 
-            @endforeach
+            </div>
 
-        </div>
+            <div class="mt-4">
 
-        <div class="mt-4">
+                {{ $events->links() }}
 
-            {{ $events->links() }}
+            </div>
 
-        </div>
+        @endif
 
-    @endif
-
-</div>
+    </div>
 
 @endsection

@@ -3,16 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Illuminate\Http\Request;
+use App\Models\Category;
 
 class EventController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $events = Event::with(['organization', 'category'])
-            ->latest()
-            ->paginate(9);
+        $query = Event::with(['organization', 'category']);
 
-        return view('events.index', compact('events'));
+        // Pencarian berdasarkan judul
+        if ($request->filled('search')) {
+            $query->where('judul', 'like', '%' . $request->search . '%');
+        }
+
+        // Filter berdasarkan kategori
+        if ($request->filled('category')) {
+            $query->where('category_id', $request->category);
+        }
+
+        $events = $query->latest()->paginate(9);
+
+        $categories = Category::all();
+
+        return view('events.index', compact('events', 'categories'));
     }
     public function show(Event $event)
     {

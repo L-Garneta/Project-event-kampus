@@ -1,0 +1,81 @@
+.hero-section{
+    background: linear-gradient(135deg,#0d6efd,#4f8dfd);
+    padding:70px;
+    color:#fff;
+}
+
+.hero-image{
+    max-height:420px;
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
+
+.category-card{
+    transition:.3s;
+    cursor:pointer;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.event-card{
+    transition:.3s;
+}
+
+.event-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.event-card img{
+    transition:.3s;
+}
+
+.event-card:hover img{
+    transform:scale(1.05);
+}
+.hero-image{
+    width: 30%;
+    max-width: 550px;
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+}
+/* ================= EVENT CARD ================= */
+.event-card{
+    transition:.35s;
+    overflow:hidden;
+}
+.event-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.12)!important;
+}
+.event-image{
+    height:230px;
+    position:relative;
+    overflow:hidden;
+}
+.event-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+.event-card:hover .event-image img{
+    transform:scale(1.08);
+}
+.event-card .badge{
+    border-radius:20px;
+}
+.event-card .btn{
+    transition:.3s;
+}
+.event-card .btn:hover{
+    letter-spacing:.5px;
+}
