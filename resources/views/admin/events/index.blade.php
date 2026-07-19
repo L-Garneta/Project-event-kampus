@@ -6,6 +6,22 @@
 
 <div class="container-fluid">
 
+    @if(session('success'))
+
+    <div class="alert alert-success alert-dismissible fade show">
+
+        {{ session('success') }}
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert">
+        </button>
+
+    </div>
+
+    @endif
+
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <div>
@@ -71,10 +87,20 @@
 
                             <td>
 
+                                @if($event->poster)
+
                                 <img
                                     src="{{ asset('storage/'.$event->poster) }}"
                                     width="80"
                                     class="rounded">
+
+                                @else
+
+                                <span class="text-muted">
+                                    Tidak ada
+                                </span>
+
+                                @endif
 
                             </td>
 
@@ -90,13 +116,13 @@
 
                             <td>
 
-                                {{ $event->category->nama }}
+                                {{ $event->category->nama_kategori ?? '-' }}
 
                             </td>
 
                             <td>
 
-                                {{ $event->tanggal }}
+                                {{ $event->tanggal->format('d M Y') }}
 
                             </td>
 
@@ -110,15 +136,15 @@
 
                                 @if($event->status=='Gratis')
 
-                                    <span class="badge bg-success">
-                                        Gratis
-                                    </span>
+                                <span class="badge bg-success">
+                                    Gratis
+                                </span>
 
                                 @else
 
-                                    <span class="badge bg-warning text-dark">
-                                        Berbayar
-                                    </span>
+                                <span class="badge bg-warning text-dark">
+                                    Berbayar
+                                </span>
 
                                 @endif
 
@@ -141,6 +167,24 @@
                                     Edit
 
                                 </a>
+
+                                <form
+                                    action="{{ route('admin.events.destroy',$event) }}"
+                                    method="POST"
+                                    class="d-inline"
+                                    onsubmit="return confirm('Yakin ingin menghapus event ini?')">
+
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button
+                                        class="btn btn-danger btn-sm">
+
+                                        Hapus
+
+                                    </button>
+
+                                </form>
 
                             </td>
 

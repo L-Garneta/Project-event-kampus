@@ -69,7 +69,6 @@ class EventSeeder extends Seeder
                 ],
                 $event
             );
-
         }
     }
 }

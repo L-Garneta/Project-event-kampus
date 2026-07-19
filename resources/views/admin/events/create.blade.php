@@ -54,7 +54,25 @@
                             type="text"
                             name="judul"
                             class="form-control"
-                            placeholder="Masukkan judul event">
+                            placeholder="Masukkan judul event"
+                            value="{{ old('judul') }}">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
+                            Tema
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="tema"
+                            class="form-control"
+                            placeholder="Masukkan tema event"
+                            value="{{ old('tema') }}">
 
                     </div>
 
@@ -70,11 +88,21 @@
                             name="category_id"
                             class="form-select">
 
-                            <option selected disabled>
+                            <option disabled selected>
 
                                 Pilih Kategori
 
                             </option>
+
+                            @foreach($categories as $category)
+
+                            <option value="{{ $category->id }}">
+
+                                {{ $category->nama_kategori }}
+
+                            </option>
+
+                            @endforeach
 
                         </select>
 
@@ -92,11 +120,21 @@
                             name="organization_id"
                             class="form-select">
 
-                            <option selected disabled>
+                            <option disabled selected>
 
                                 Pilih Organisasi
 
                             </option>
+
+                            @foreach($organizations as $organization)
+
+                            <option value="{{ $organization->id }}">
+
+                                {{ $organization->nama_organisasi }}
+
+                            </option>
+
+                            @endforeach
 
                         </select>
 

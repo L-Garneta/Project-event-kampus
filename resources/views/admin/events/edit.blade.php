@@ -60,6 +60,23 @@
 
                         <label class="form-label">
 
+                            Tema
+
+                        </label>
+
+                        <input
+                            type="text"
+                            name="tema"
+                            class="form-control"
+                            placeholder="Masukkan tema event"
+                            value="{{ old('tema', $event->tema) }}">
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">
+
                             Kategori
 
                         </label>
@@ -68,11 +85,22 @@
                             name="category_id"
                             class="form-select">
 
-                            <option selected disabled>
+                            <option disabled selected>
 
                                 Pilih Kategori
 
                             </option>
+
+                            @foreach($categories as $category)
+
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id', $event->category_id) == $category->id ? 'selected' : '' }}>
+
+                                {{ $category->nama_kategori }}
+
+                            </option>
+
+                            @endforeach
 
                         </select>
 
@@ -90,11 +118,22 @@
                             name="organization_id"
                             class="form-select">
 
-                            <option selected disabled>
+                            <option disabled selected>
 
                                 Pilih Organisasi
 
                             </option>
+
+                            @foreach($organizations as $organization)
+
+                            <option value="{{ $organization->id }}"
+                                {{ old('organization_id', $event->organization_id) == $organization->id ? 'selected' : '' }}>
+
+                                {{ $organization->nama_organisasi }}
+
+                            </option>
+
+                            @endforeach
 
                         </select>
 
@@ -112,7 +151,7 @@
                             type="date"
                             name="tanggal"
                             class="form-control"
-                            value="{{ old('tanggal', $event->tanggal) }}">
+                            value="{{ old('tanggal', $event->tanggal?->format('Y-m-d')) }}">
 
                     </div>
 
@@ -128,7 +167,7 @@
                             type="time"
                             name="waktu"
                             class="form-control"
-                            value="{{ old('waktu', $event->waktu) }}">
+                            value="{{ old('waktu', $event->waktu?->format('H:i')) }}">
 
                     </div>
 
@@ -178,12 +217,18 @@
                             name="status"
                             class="form-select">
 
-                            <option value="Gratis">
+                            <option value="Gratis"
+                                {{ old('status', $event->status) == 'Gratis' ? 'selected' : '' }}>
+
                                 Gratis
+
                             </option>
 
-                            <option value="Berbayar">
+                            <option value="Berbayar"
+                                {{ old('status', $event->status) == 'Berbayar' ? 'selected' : '' }}>
+
                                 Berbayar
+
                             </option>
 
                         </select>
