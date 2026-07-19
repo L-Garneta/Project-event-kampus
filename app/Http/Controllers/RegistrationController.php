@@ -7,6 +7,7 @@ use App\Models\Registration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RegistrationSuccessMail;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RegistrationController extends Controller
 {
@@ -40,5 +41,18 @@ class RegistrationController extends Controller
       $registration->load('event.organization');
 
       return view('events.success', compact('registration'));
+   }
+   public function downloadPdf(Registration $registration)
+   {
+      $registration->load('event.organization', 'event.category');
+
+      $pdf = Pdf::loadView(
+         'pdf.registration',
+         compact('registration')
+      );
+
+      return $pdf->download(
+         'Bukti-Registrasi-' . $registration->nama_peserta . '.pdf'
+      );
    }
 }

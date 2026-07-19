@@ -43,6 +43,10 @@ Route::prefix('events')->group(function () {
 Route::get('/registration-success/{registration}', [RegistrationController::class, 'success'])
     ->name('registrations.success');
 
+// Download Bukti Registrasi PDF
+Route::get('/registration/{registration}/pdf', [RegistrationController::class, 'downloadPdf'])
+    ->name('registration.pdf');
+
 // Halaman dashboard admin
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
