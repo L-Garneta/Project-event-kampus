@@ -6,6 +6,9 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\Admin\RegistrationController as AdminRegistrationController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\OrganizationController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -44,11 +47,11 @@ Route::get('/registration-success/{registration}', [RegistrationController::clas
     ->name('registrations.success');
 
 // Halaman dashboard admin
-Route::middleware('auth')->group(function () {
+/*Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
-});
+});*/
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 
@@ -57,4 +60,13 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     })->name('dashboard');
 
     Route::resource('events', AdminEventController::class);
+
+    Route::resource('categories', CategoryController::class)
+        ->except('show');
+
+    Route::resource('organizations', OrganizationController::class)
+        ->except('show');
+
+    Route::resource('registrations', AdminRegistrationController::class)
+        ->only(['index', 'show', 'destroy']);
 });

@@ -34,6 +34,22 @@
 
     </div>
 
+    @if(session('success'))
+
+    <div class="alert alert-success alert-dismissible fade show">
+
+        {{ session('success') }}
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert">
+        </button>
+
+    </div>
+
+    @endif
+
     <div class="card shadow-sm border-0">
 
         <div class="card-body">
@@ -70,7 +86,7 @@
 
                             <td>
 
-                                {{ $loop->iteration }}
+                                {{ $categories->firstItem() + $loop->index }}
 
                             </td>
 
@@ -96,7 +112,8 @@
                                 <form
                                     action="{{ route('admin.categories.destroy', $category) }}"
                                     method="POST"
-                                    class="d-inline">
+                                    class="d-inline"
+                                    onsubmit="return confirm('Yakin ingin menghapus kategori ini?')">
 
                                     @csrf
                                     @method('DELETE')
@@ -134,6 +151,12 @@
                     </tbody>
 
                 </table>
+
+                <div class="mt-3">
+
+                    {{ $categories->links() }}
+
+                </div>
 
             </div>
 
