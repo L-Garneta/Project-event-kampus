@@ -26,14 +26,19 @@ class RegistrationController extends Controller
       ]);
 
       $validated['event_id'] = $event->id;
-      $validated['status'] = 'Terdaftar'; 
+      $validated['status'] = 'Terdaftar';
 
       $registration = Registration::create($validated);
 
       Mail::to($registration->email)->send(new RegistrationSuccessMail($registration, $event));
 
       return redirect()
-         ->route('events.show', $event)
-         ->with('success', 'Pendaftaran berhasil.');
+         ->route('registrations.success', $registration);
+   }
+   public function success(Registration $registration)
+   {
+      $registration->load('event.organization');
+
+      return view('events.success', compact('registration'));
    }
 }
