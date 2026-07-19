@@ -59,13 +59,18 @@
                         </tr>
 
                         <tr>
+                            <th>Tema</th>
+                            <td>{{ $event->tema }}</td>
+                        </tr>
+
+                        <tr>
                             <th>Kategori</th>
-                            <td>-</td>
+                            <td>{{ $event->category->nama_kategori ?? '-' }}</td>
                         </tr>
 
                         <tr>
                             <th>Organisasi</th>
-                            <td>-</td>
+                            <td>{{ $event->organization->nama_organisasi ?? '-' }}</td>
                         </tr>
 
                         <tr>
