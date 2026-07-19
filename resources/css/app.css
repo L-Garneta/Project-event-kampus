@@ -5,6 +5,7 @@
 @import './admin.css';
 @import './dashboard.css';
 @import './components.css';
+@import './home.css';
 /* Navbar Mobile */
 .hero-section{
     overflow: hidden;
@@ -42,6 +43,77 @@
         width:100%;
     }
 }
+.navbar-custom{
+       top:0px;
+    transition:.35s;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(0px);
+    -webkit-backdrop-filter:blur(0px);
+}
+
+.navbar-custom.scrolled{
+    background: rgba(255,255,255,.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,255,255,.25);
+    box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+.navbar-collapse{
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(25px);
+
+    -webkit-backdrop-filter:blur(25px);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-top:12px;
+}
+.nav-link{
+
+    font-weight:600;
+
+    margin:0 12px;
+
+    position:relative;
+
+}
+
+.nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-4px;
+
+    width:0;
+
+    height:2px;
+
+    background:#2563EB;
+
+    transition:.3s;
+
+}
+
+.nav-link:hover::after{
+
+    width:100%;
+
+}
+
+.navbar-brand{
+
+    color:#2563EB!important;
+
+}
+
 .event-card{
     transition: .3s;
 }

@@ -7,15 +7,16 @@
 
     <title>@yield('title', 'Campus Event Management System')</title>
 
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-
 <body>
 
     @include('partials.public.navbar')
 
-    <main class="py-4">
-        <div class="container mt-3">
+    <main>
+        <div class="container">
 
             @if(session('success'))
 
@@ -35,6 +36,27 @@
     </main>
 
     @include('partials.public.footer')
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function () {
+
+            const nav = document.querySelector('.navbar-custom');
+
+            if (window.scrollY > 30) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+
+        });
+    </script>
 
 </body>
 

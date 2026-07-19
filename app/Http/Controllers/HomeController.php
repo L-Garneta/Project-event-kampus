@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -12,7 +13,11 @@ class HomeController extends Controller
             ->latest()
             ->take(6)
             ->get();
-            
-        return view('home.index ', compact('events'));
+
+        $categories = Category::all();
+        return view('home.index', compact(
+            'events',
+            'categories'
+        ));
     }
 }
