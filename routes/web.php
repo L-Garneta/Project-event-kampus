@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\RegistrationController as AdminRegistrationController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrganizationController;
+use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -51,17 +52,13 @@ Route::get('/registration/{registration}/pdf', [RegistrationController::class, '
     ->name('registration.pdf');
 
 // Halaman dashboard admin
-/*Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
-});*/
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
+    Route::get(
+        '/dashboard',
+        [DashboardController::class, 'index']
+    )->name('dashboard');
 
     Route::resource('events', AdminEventController::class);
 

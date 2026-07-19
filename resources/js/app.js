@@ -1,6 +1,9 @@
+resources / js / app.js;
+
 import "./bootstrap";
 import "bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import "./dashboard";
 
 document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("password");
