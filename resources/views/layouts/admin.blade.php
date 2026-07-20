@@ -14,8 +14,8 @@
         rel="stylesheet">
 
     @vite([
-        'resources/css/app.css',
-        'resources/js/app.js'
+    'resources/css/app.css',
+    'resources/js/app.js'
     ])
 </head>
 
@@ -23,19 +23,19 @@
 
     @include('partials.admin.navbar_adm')
 
-<div class="container-fluid">
-    <div class="row">
+    <div class="container-fluid">
+        <div class="row">
 
-        @include('partials.admin.sidebar_adm')
+            @include('partials.admin.sidebar_adm')
 
-        <main class="col-md-10 py-4">
-            @yield('content')
-        </main>
+            <main class="col-md-10 py-4">
+                @yield('content')
+            </main>
 
+        </div>
     </div>
-</div>
 
-@include('partials.admin.footer_adm')
+    @include('partials.admin.footer_adm')
 
 </body>
 
